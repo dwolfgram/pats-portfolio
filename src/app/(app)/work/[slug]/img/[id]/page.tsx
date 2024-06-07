@@ -41,7 +41,7 @@ async function ImageDetailPage({ params }: ImageDetailPageProps) {
     <div className={styles.container}>
       <div className={styles.imageContainer}>
         <Media
-          url={image.url!}
+          filename={image.filename!}
           width={image.width!}
           height={image.height!}
           alt={image.filename!}

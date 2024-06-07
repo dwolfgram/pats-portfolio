@@ -3,22 +3,24 @@ import Image from 'next/image'
 import React from 'react'
 
 interface MediaProps {
-  url: string
   alt: string
+  filename?: string
+  url?: string
   width?: number
   height?: number
   sizes?: string
   priority?: boolean
 }
 
-function Media({ url, width, height, alt, sizes = '100vw', priority }: MediaProps) {
-  return isVideo(url) ? (
+function Media({ filename, url, width, height, alt, sizes = '100vw', priority }: MediaProps) {
+  const mediaUrl = url || `https://pat-portfolio.s3.eu-north-1.amazonaws.com/${filename}`
+  return isVideo(mediaUrl) ? (
     <video playsInline autoPlay loop muted>
-      <source src={url} />
+      <source src={mediaUrl} />
     </video>
   ) : (
     <Image
-      src={url}
+      src={mediaUrl}
       alt={alt}
       width={width}
       height={height}

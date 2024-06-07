@@ -61,7 +61,7 @@ async function ProjectDetailsPage({ params }: ProjectProps) {
           return (
             <Link key={image.id} href={`/work/${slug}/img/${image.id}`}>
               <Media
-                url={`${image.url}`}
+                filename={`${image.filename}`}
                 alt={image.filename}
                 sizes="(max-width: 1200px) 100vw, 50vw"
                 priority={true}
