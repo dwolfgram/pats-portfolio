@@ -18,7 +18,6 @@ interface ProjectProps {
 }
 
 const getProject = unstable_cache(async (slug: string) => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })

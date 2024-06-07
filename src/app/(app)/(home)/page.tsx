@@ -8,9 +8,14 @@ import { getAllCategories, getAllProjectsByPage } from '@/actions'
 const PAGE = 1
 const LIMIT = 10
 
-async function HomePage() {
+const getData = async (page: number, limit: number) => {
   const projects = await getAllProjectsByPage(PAGE, LIMIT)
   const categories = await getAllCategories()
+  return { projects, categories }
+}
+
+async function HomePage() {
+  const { projects, categories } = await getData(PAGE, LIMIT)
 
   return (
     <div className={styles.container}>

@@ -8,7 +8,6 @@ import { Metadata } from 'next'
 import { unstable_cache } from 'next/cache'
 
 const getProjects = unstable_cache(async (category: string) => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })

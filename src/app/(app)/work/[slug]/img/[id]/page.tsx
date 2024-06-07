@@ -16,7 +16,6 @@ interface ImageDetailPageProps {
 }
 
 const getImage = unstable_cache(async (id: string) => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })

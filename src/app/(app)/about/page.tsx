@@ -11,7 +11,6 @@ export const metadata = {
 }
 
 const getAboutPageTitleData = unstable_cache(async () => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -27,7 +26,6 @@ const getAboutPageTitleData = unstable_cache(async () => {
 })
 
 const getAboutPageBodyData = unstable_cache(async () => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -43,7 +41,6 @@ const getAboutPageBodyData = unstable_cache(async () => {
 })
 
 const getAboutPageEmailData = unstable_cache(async () => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -59,7 +56,6 @@ const getAboutPageEmailData = unstable_cache(async () => {
 })
 
 const getAboutPageImageData = unstable_cache(async () => {
-  'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -74,11 +70,17 @@ const getAboutPageImageData = unstable_cache(async () => {
   return data.docs[0]
 })
 
-async function AboutPage() {
+const fetchAboutPageData = async () => {
   const image = await getAboutPageImageData()
   const title = await getAboutPageTitleData()
   const body = await getAboutPageBodyData()
   const email = await getAboutPageEmailData()
+
+  return { image, title, body, email }
+}
+
+async function AboutPage() {
+  const { image, title, body, email } = await fetchAboutPageData()
 
   return (
     <section className={styles.container}>
