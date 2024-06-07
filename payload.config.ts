@@ -50,8 +50,8 @@ export default buildConfig({
       collections: {
         media: {
           adapter,
-          generateFileURL: ({ filename }) =>
-            `https://pat-portfolio.s3.eu-north-1.amazonaws.com/${filename}`,
+          // generateFileURL: ({ filename }) =>
+          //   `https://pat-portfolio.s3.eu-north-1.amazonaws.com/${filename}`,
         },
       },
     }),
