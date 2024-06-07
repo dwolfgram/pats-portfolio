@@ -14,6 +14,12 @@ const nextConfig = {
         port: '',
         pathname: '/originals/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'pat-portfolio.s3.eu-north-1.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 }
