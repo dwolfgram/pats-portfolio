@@ -5,6 +5,7 @@ import PhotoOverlay from '@/components/PhotoOverlay'
 
 import styles from './index.module.css'
 import Media from '@/components/Media'
+import { unstable_cache } from 'next/cache'
 
 interface ImageDetailPageProps {
   params: {
@@ -12,7 +13,7 @@ interface ImageDetailPageProps {
   }
 }
 
-const getImage = async (id: string) => {
+const getImage = unstable_cache(async (id: string) => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -21,7 +22,7 @@ const getImage = async (id: string) => {
     id,
   })
   return data
-}
+})
 
 async function ImageDetailPage({ params }: ImageDetailPageProps) {
   const { id } = params

@@ -9,6 +9,7 @@ import CategoriesList from '@/components/CategoriesList'
 import Media from '@/components/Media'
 
 import styles from './index.module.css'
+import { unstable_cache } from 'next/cache'
 
 interface ProjectProps {
   params: {
@@ -16,7 +17,7 @@ interface ProjectProps {
   }
 }
 
-const getProject = async (slug: string) => {
+const getProject = unstable_cache(async (slug: string) => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -30,7 +31,7 @@ const getProject = async (slug: string) => {
     },
   })
   return data.docs[0] as ProjectWithUpdatedImages
-}
+})
 
 export async function generateMetadata({ params }: ProjectProps): Promise<Metadata> {
   const slug = params.slug

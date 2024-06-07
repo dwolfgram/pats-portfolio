@@ -6,6 +6,7 @@ import styles from './index.module.css'
 import Media from '@/components/Media'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { unstable_cache } from 'next/cache'
 
 interface ImageDetailPageProps {
   params: {
@@ -14,7 +15,7 @@ interface ImageDetailPageProps {
   }
 }
 
-const getImage = async (id: string) => {
+const getImage = unstable_cache(async (id: string) => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -24,7 +25,7 @@ const getImage = async (id: string) => {
     id,
   })
   return data
-}
+})
 
 export async function generateMetadata({ params }: ImageDetailPageProps): Promise<Metadata> {
   const imageId = params.id

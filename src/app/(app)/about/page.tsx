@@ -4,12 +4,13 @@ import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import styles from './index.module.css'
 import InstagramLink from '@/components/InstagramLink'
+import { unstable_cache } from 'next/cache'
 
 export const metadata = {
   title: 'About & Contact',
 }
 
-const getAboutPageTitleData = async () => {
+const getAboutPageTitleData = unstable_cache(async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -23,9 +24,9 @@ const getAboutPageTitleData = async () => {
     },
   })
   return data.docs[0]
-}
+})
 
-const getAboutPageBodyData = async () => {
+const getAboutPageBodyData = unstable_cache(async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -39,9 +40,9 @@ const getAboutPageBodyData = async () => {
     },
   })
   return data.docs[0]
-}
+})
 
-const getAboutPageEmailData = async () => {
+const getAboutPageEmailData = unstable_cache(async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -55,9 +56,9 @@ const getAboutPageEmailData = async () => {
     },
   })
   return data.docs[0]
-}
+})
 
-const getAboutPageImageData = async () => {
+const getAboutPageImageData = unstable_cache(async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -71,13 +72,13 @@ const getAboutPageImageData = async () => {
     },
   })
   return data.docs[0]
-}
+})
 
 async function AboutPage() {
+  const image = await getAboutPageImageData()
   const title = await getAboutPageTitleData()
   const body = await getAboutPageBodyData()
   const email = await getAboutPageEmailData()
-  const image = await getAboutPageImageData()
 
   return (
     <section className={styles.container}>

@@ -25,6 +25,7 @@ function Media({ url, width, height, alt, sizes = '100vw', priority }: MediaProp
       fill={!width && !height}
       sizes={sizes}
       priority={priority}
+      quality={50}
     />
   )
 }

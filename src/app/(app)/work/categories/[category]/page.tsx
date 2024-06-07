@@ -5,8 +5,9 @@ import { ProjectWithUpdatedImages } from '@/components/Gallery/types'
 import Gallery from '@/components/Gallery'
 import styles from './index.module.css'
 import { Metadata } from 'next'
+import { unstable_cache } from 'next/cache'
 
-const getProjects = async (category: string) => {
+const getProjects = unstable_cache(async (category: string) => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -29,7 +30,7 @@ const getProjects = async (category: string) => {
     },
   })
   return data.docs as ProjectWithUpdatedImages[]
-}
+})
 
 interface CategoriesPageProps {
   params: {
