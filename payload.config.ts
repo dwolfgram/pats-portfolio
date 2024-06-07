@@ -1,6 +1,6 @@
 import path from 'path'
 // import { postgresAdapter } from '@payloadcms/db-postgres'
-import { en } from 'payload/i18n/en'
+import { es } from 'payload/i18n/es'
 import {
   AlignFeature,
   BlockquoteFeature,
@@ -35,6 +35,9 @@ export default buildConfig({
     {
       slug: 'users',
       auth: true,
+      admin: {
+        hidden: true,
+      },
       access: {
         delete: () => false,
         update: () => false,
@@ -42,7 +45,7 @@ export default buildConfig({
       fields: [],
     },
     {
-      slug: 'pages',
+      slug: 'projects',
       admin: {
         useAsTitle: 'title',
       },
@@ -50,19 +53,115 @@ export default buildConfig({
         {
           name: 'title',
           type: 'text',
+          required: true,
         },
         {
-          name: 'content',
-          type: 'richText',
+          name: 'urlSlug',
+          type: 'text',
+          admin: {
+            placeholder: 'my-url-slug',
+          },
+          required: true,
+        },
+        {
+          name: 'featuredImage',
+          type: 'upload',
+          required: true,
+          relationTo: 'media',
+        },
+        {
+          name: 'otherImages',
+          type: 'array',
+          fields: [
+            {
+              name: 'image',
+              label: 'Image',
+              type: 'upload',
+              relationTo: 'media',
+            },
+          ],
+        },
+        {
+          name: 'categories',
+          label: 'Categories',
+          type: 'relationship',
+          relationTo: 'categories',
+          hasMany: true,
+        },
+        {
+          name: 'toolsUsed',
+          label: 'Tools Used',
+          type: 'relationship',
+          relationTo: 'tools',
+          hasMany: true,
+        },
+        {
+          name: 'projectDescription',
+          type: 'textarea',
+        },
+      ],
+    },
+    {
+      slug: 'categories',
+      access: {
+        read: () => true,
+      },
+      admin: {
+        useAsTitle: 'categoryName',
+      },
+      fields: [
+        {
+          name: 'categoryName',
+          type: 'text',
+        },
+      ],
+    },
+    {
+      slug: 'tools',
+      access: {
+        read: () => true,
+      },
+      admin: {
+        useAsTitle: 'toolName',
+      },
+      fields: [
+        {
+          name: 'toolName',
+          type: 'text',
+        },
+      ],
+    },
+    {
+      slug: 'aboutPageData',
+      access: {
+        read: () => true,
+      },
+      admin: {
+        useAsTitle: 'fieldName',
+      },
+      fields: [
+        {
+          name: 'fieldName',
+          type: 'text',
+        },
+        {
+          name: 'aboutText',
+          type: 'textarea',
         },
       ],
     },
     {
       slug: 'media',
       upload: true,
+      access: {
+        read: () => true,
+      },
+      admin: {
+        useAsTitle: 'imageDescription',
+      },
       fields: [
         {
-          name: 'text',
+          name: 'imageDescription',
           type: 'text',
         },
       ],
@@ -74,8 +173,8 @@ export default buildConfig({
   },
   // db: postgresAdapter({
   //   pool: {
-  //     connectionString: process.env.POSTGRES_URI || ''
-  //   }
+  //     connectionString: process.env.POSTGRES_URI || '',
+  //   },
   // }),
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
@@ -86,13 +185,13 @@ export default buildConfig({
    * This is completely optional and will default to English if not provided
    */
   i18n: {
-    supportedLanguages: { en },
+    supportedLanguages: { es },
   },
 
   admin: {
     autoLogin: {
-      email: 'dev@payloadcms.com',
-      password: 'test',
+      email: process.env.ADMIN_EMAIL!,
+      password: process.env.ADMIN_PASSWORD!,
       prefillOnly: true,
     },
   },
@@ -106,8 +205,8 @@ export default buildConfig({
       await payload.create({
         collection: 'users',
         data: {
-          email: 'dev@payloadcms.com',
-          password: 'test',
+          email: process.env.ADMIN_EMAIL!,
+          password: process.env.ADMIN_PASSWORD!,
         },
       })
     }

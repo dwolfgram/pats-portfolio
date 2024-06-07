@@ -4,8 +4,18 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   // Your Next.js config here
   experimental: {
-    reactCompiler: false
-  }
+    reactCompiler: false,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+        port: '',
+        pathname: '/originals/**',
+      },
+    ],
+  },
 }
 
 export default withPayload(nextConfig)

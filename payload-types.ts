@@ -9,7 +9,10 @@
 export interface Config {
   collections: {
     users: User;
-    pages: Page;
+    projects: Project;
+    categories: Category;
+    tools: Tool;
+    aboutPageData: AboutPageDatum;
     media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -39,26 +42,22 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "projects".
  */
-export interface Page {
+export interface Project {
   id: string;
-  title?: string | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+  title: string;
+  urlSlug: string;
+  featuredImage: string | Media;
+  otherImages?:
+    | {
+        image?: string | Media | null;
+        id?: string | null;
+      }[]
+    | null;
+  categories?: (string | Category)[] | null;
+  toolsUsed?: (string | Tool)[] | null;
+  projectDescription?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -68,7 +67,7 @@ export interface Page {
  */
 export interface Media {
   id: string;
-  text?: string | null;
+  imageDescription?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -78,6 +77,39 @@ export interface Media {
   filesize?: number | null;
   width?: number | null;
   height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  categoryName?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tools".
+ */
+export interface Tool {
+  id: string;
+  toolName?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "aboutPageData".
+ */
+export interface AboutPageDatum {
+  id: string;
+  fieldName?: string | null;
+  aboutText?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
