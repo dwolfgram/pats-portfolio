@@ -1,0 +1,21 @@
+.categoriesContainer {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.category {
+  padding: 6px 12px;
+  border: 1px solid #eee;
+  background-color: #fcfcfc;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    color: rgba(140, 245, 2, 1);
+  }
+}

@@ -2,72 +2,40 @@
   box-sizing: border-box;
 }
 
+*::selection {
+  background-color: rgba(140, 245, 2, 1);
+}
+
 html {
   width: 100%;
   height: 100%;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 body {
-  color: #ffffff;
+  color: #000;
+  padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  padding: 0 20px;
 }
 
 main {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 100vh;
-  max-width: 800px;
-  margin: 0 auto;
-  padding-block: 80px;
-  border-inline-width: 1px;
-  border-inline-style: solid;
-  border-image: linear-gradient(180deg, #ffffff00, #ffffff00, #ffffff1a, #ffffff00) 1;
-
-  @media screen and (max-width: 600px) {
-    padding-block: 20px;
-  }
-}
-
-article {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 60px 80px;
-
-  @media screen and (max-width: 600px) {
-    padding: 40px 40px;
-  }
-}
-
-.badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 2.6px;
+  padding: 0px 80px 40px 80px;
 }
 
 h1 {
-  color: #ffffff;
+  color: #000;
   font-size: 4rem;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.02rem;
   margin: 0;
+  padding: 0;
 
   @media screen and (max-width: 600px) {
     font-size: 2rem;
@@ -75,7 +43,7 @@ h1 {
 }
 
 p {
-  color: #ffffff;
+  color: #000000;
   font-size: 16px;
   font-weight: 300;
   line-height: 28px;
@@ -83,109 +51,60 @@ p {
 }
 
 a {
-  color: #ffffff;
-  text-decoration: underline;
-  transition: color 0.2s ease-out;
-
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  transform: translateY(0);
   &:hover {
-    color: #ffffff80;
+    color: rgba(140, 245, 2, 1);
   }
 }
 
-.codeBlock {
-  position: relative;
-  background-color: #00000066;
-  margin: 0;
-  padding: 0;
+img {
+  position: relative !important;
+}
 
-  pre {
-    margin: 0;
-    padding: 60px 80px;
-    overflow-x: auto;
+video {
+  position: relative !important;
+}
 
-    @media screen and (max-width: 600px) {
-      padding: 40px 40px;
-    }
+.skeleton {
+  background-color: #f5f7f8;
+  animation: skeleton-loading 1.5s infinite;
+  opacity: 1;
+}
 
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: calc(50% - 50vw);
-      width: 100vw;
-      height: 1px;
-      background: linear-gradient(90deg, #ffffff00, #ffffff1a, #ffffff1a, #ffffff00);
-      z-index: 1;
-    }
+.fadeInAndUp {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInAndUp 0.7s forwards;
+}
 
-    &::after {
-      content: url('/crosshair.svg');
-      display: block;
-      height: 19px;
-      width: 19px;
-      position: absolute;
-      top: -9px;
-      left: -10px;
-    }
+@keyframes fadeInAndUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
   }
-
-  code {
-    font-size: 14px;
-    line-height: 2;
-  }
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 50vw);
-    width: 100vw;
-    height: 1px;
-    background: linear-gradient(90deg, #ffffff00, #ffffff1a, #ffffff1a, #ffffff00);
-    z-index: 1;
-  }
-
-  &::after {
-    content: url('/crosshair.svg');
-    display: block;
-    height: 19px;
-    width: 19px;
-    position: absolute;
-    bottom: -9px;
-    right: -10px;
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  div.blur {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('/blur.png');
-    background-repeat: repeat;
-    background-size: 400px 400px;
-    background-blend-mode: soft-light, normal;
-    backdrop-filter: blur(60px);
+@keyframes skeleton-loading {
+  0% {
+    opacity: 1;
   }
+  60% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-  div.gradient {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('/gradient.webp');
-    background-size: cover;
-    background-position: center;
-    z-index: -2;
+@media screen and (max-width: 1200px) {
+  main {
+    padding: 0px 40px 20px 40px;
   }
 }

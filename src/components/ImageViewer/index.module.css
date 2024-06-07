@@ -1,0 +1,36 @@
+.container {
+  width: auto;
+}
+
+.featuredImageContainer img,
+.featuredImageContainer video {
+  background-color: #fafafa;
+  width: 100%;
+  max-height: 75vh;
+}
+
+.otherImagesContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.otherImagesContainer img,
+.otherImagesContainer video {
+  cursor: pointer;
+  width: 100px !important;
+  height: 100px !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+  .featuredImageContainer img,
+  .featuredImageContainer video {
+    max-height: none;
+  }
+}
