@@ -9,7 +9,7 @@ export const metadata = {
   title: 'About & Contact',
 }
 
-export const getAboutPageTitleData = async () => {
+const getAboutPageTitleData = async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -25,7 +25,7 @@ export const getAboutPageTitleData = async () => {
   return data.docs[0]
 }
 
-export const getAboutPageBodyData = async () => {
+const getAboutPageBodyData = async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -41,7 +41,7 @@ export const getAboutPageBodyData = async () => {
   return data.docs[0]
 }
 
-export const getAboutPageEmailData = async () => {
+const getAboutPageEmailData = async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
@@ -57,7 +57,7 @@ export const getAboutPageEmailData = async () => {
   return data.docs[0]
 }
 
-export const getAboutPageImageData = async () => {
+const getAboutPageImageData = async () => {
   'use server'
   const payload = await getPayloadHMR({
     config: configPromise,
