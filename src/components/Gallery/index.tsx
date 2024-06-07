@@ -21,7 +21,7 @@ function Gallery({ projects }: GalleryProps) {
         <div
           key={project.id}
           className="fadeInAndUp"
-          style={{ animationDelay: `${0.25 * (i % 10)}s` }}
+          style={{ animationDelay: `${0.05 * (i % 10)}s` }}
         >
           <Preview
             project={project}
