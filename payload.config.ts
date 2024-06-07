@@ -32,7 +32,6 @@ const dirname = path.dirname(filename)
 
 const adapter = s3Adapter({
   config: {
-    endpoint: 'https://pat-portfolio.s3.eu-north-1.amazonaws.com',
     credentials: {
       accessKeyId: process.env.S3_ACCESS_KEY_ID!,
       secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
