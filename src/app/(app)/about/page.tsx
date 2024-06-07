@@ -99,6 +99,7 @@ async function AboutPage() {
                 alt="flower"
                 height={75}
                 width={53}
+                priority={true}
               />,
             )
             .map((image) => image)}

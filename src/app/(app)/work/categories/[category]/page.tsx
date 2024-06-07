@@ -49,7 +49,7 @@ async function CategoriesPage({ params }: CategoriesPageProps) {
   const projects = await getProjects(category)
 
   return (
-    <section>
+    <section className={styles.container}>
       <h3 className={styles.heading}>Category: {category}</h3>
       <Gallery projects={projects} />
     </section>
