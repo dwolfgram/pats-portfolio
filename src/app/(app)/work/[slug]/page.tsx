@@ -59,7 +59,7 @@ async function ProjectDetailsPage({ params }: ProjectProps) {
       <div className={styles.imagesContainer}>
         {[project.featuredImage, ...project.otherImages.map((data) => data.image)].map((image) => {
           return (
-            <Link key={image.id} href={`/work/${slug}/img/${image.id}`}>
+            <Link key={image.id} href={`/work/${slug}/img/${image.id}`} prefetch={false}>
               <Media
                 url={`${image.url}`}
                 alt={image.filename}

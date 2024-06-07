@@ -13,7 +13,11 @@ function CategoriesList({ categories }: CategoriesListProps) {
       {categories!
         .sort((a, b) => a.categoryName.localeCompare(b.categoryName))
         .map((category) => (
-          <Link key={category.id} href={`/work/categories/${category.categoryName}`}>
+          <Link
+            key={category.id}
+            href={`/work/categories/${category.categoryName}`}
+            prefetch={false}
+          >
             <div className={styles.category}>{category.categoryName}</div>
           </Link>
         ))}

@@ -23,7 +23,9 @@ function Nav() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Link href="/">Patricia Pastor</Link>
+        <Link href="/" prefetch={false}>
+          Patricia Pastor
+        </Link>
       </div>
       <div className={styles.links}>
         {NAV_LINKS.map((link) => {
@@ -31,7 +33,12 @@ function Nav() {
             currentPath === link.href ||
             link.pathsToMatch.some((path) => currentPath.includes(path))
           return (
-            <Link className={`${isActive && styles.active}`} key={link.label} href={link.href}>
+            <Link
+              className={`${isActive && styles.active}`}
+              key={link.label}
+              href={link.href}
+              prefetch={false}
+            >
               {link.label}
             </Link>
           )
@@ -47,7 +54,9 @@ function Nav() {
             &#x2715;
           </button>
           <div className={styles.logo}>
-            <Link href="/">Patricia Pastor</Link>
+            <Link href="/" prefetch={false}>
+              Patricia Pastor
+            </Link>
           </div>
           {NAV_LINKS.map((link, i) => {
             const isActive =
@@ -60,6 +69,7 @@ function Nav() {
                 style={{ animationDelay: `${0.25 * i}s` }}
                 key={link.label}
                 href={link.href}
+                prefetch={false}
               >
                 {link.label}
               </Link>

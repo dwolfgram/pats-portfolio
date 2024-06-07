@@ -9,7 +9,7 @@ interface InstagramLinkProps {
 
 function InstagramLink({ size = 24, color }: InstagramLinkProps) {
   return (
-    <Link href="https://instagram.com/paintingpatri" target="_blank">
+    <Link href="https://instagram.com/paintingpatri" target="_blank" prefetch={false}>
       <FaInstagram size={size} color={color} />
     </Link>
   )

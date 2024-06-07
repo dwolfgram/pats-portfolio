@@ -18,7 +18,7 @@ function Preview({ project, priority, sizes = '100vw' }: PreviewTypes) {
         sizes={sizes}
         priority={priority}
       />
-      <Link href={`/work/${project.urlSlug}`}>
+      <Link href={`/work/${project.urlSlug}`} prefetch={false}>
         <div className={styles.descContainer}>
           <h5>{project.title}</h5>
           <div className={styles.categoriesContainer}>
