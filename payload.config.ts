@@ -24,12 +24,37 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload/config'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
+import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const adapter = s3Adapter({
+  config: {
+    // endpoint: 'https://s3.amazonaws.com',
+    credentials: {
+      accessKeyId: process.env.S3_ACCESS_KEY_ID!,
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
+    },
+    region: process.env.S3_REGION,
+    // ... Other S3 configuration
+  },
+  bucket: process.env.S3_BUCKET!,
+})
+
 export default buildConfig({
   //editor: slateEditor({}),
+  plugins: [
+    cloudStorage({
+      // enabled: process.env.NODE_ENV === 'development',
+      collections: {
+        media: {
+          adapter,
+        },
+      },
+    }),
+  ],
   editor: lexicalEditor(),
   collections: [
     {
