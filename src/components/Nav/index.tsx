@@ -23,9 +23,7 @@ function Nav() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Link href="/" prefetch={false}>
-          Patricia Pastor
-        </Link>
+        <Link href="/">Patricia Pastor</Link>
       </div>
       <div className={styles.links}>
         {NAV_LINKS.map((link) => {
@@ -33,12 +31,7 @@ function Nav() {
             currentPath === link.href ||
             link.pathsToMatch.some((path) => currentPath.includes(path))
           return (
-            <Link
-              className={`${isActive && styles.active}`}
-              key={link.label}
-              href={link.href}
-              prefetch={false}
-            >
+            <Link className={`${isActive && styles.active}`} key={link.label} href={link.href}>
               {link.label}
             </Link>
           )
