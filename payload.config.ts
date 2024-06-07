@@ -46,10 +46,12 @@ export default buildConfig({
   //editor: slateEditor({}),
   plugins: [
     cloudStorage({
-      // enabled: process.env.NODE_ENV === 'development',
+      enabled: true,
       collections: {
         media: {
           adapter,
+          generateFileURL: ({ filename }) =>
+            `https://pat-portfolio.s3.eu-north-1.amazonaws.com/${filename}`,
         },
       },
     }),
