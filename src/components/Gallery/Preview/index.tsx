@@ -10,10 +10,14 @@ interface PreviewTypes {
 }
 
 function Preview({ project, priority, sizes = '100vw' }: PreviewTypes) {
-  const filename = project.featuredImage.filename
   return (
     <div className={styles.galleryItem}>
-      <Media filename={filename} alt={project.title} sizes={sizes} priority={priority} />
+      <Media
+        url={project.featuredImage.url}
+        alt={project.title}
+        sizes={sizes}
+        priority={priority}
+      />
       <Link href={`/work/${project.urlSlug}`}>
         <div className={styles.descContainer}>
           <h5>{project.title}</h5>

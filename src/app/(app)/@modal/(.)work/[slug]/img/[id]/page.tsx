@@ -32,7 +32,7 @@ async function ImageDetailPage({ params }: ImageDetailPageProps) {
         <Media
           width={image.width!}
           height={image.height!}
-          filename={image.filename!}
+          url={image.url!}
           alt={image.filename!}
           priority={true}
         />
