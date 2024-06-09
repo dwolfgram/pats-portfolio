@@ -1,6 +1,6 @@
 # Pat's Portfolio
 
-This portfolio website was built using Nextjs and PayloadCMS V3. [View the website](https://pats-portfolio-vlc.netlify.app/)
+This portfolio website was built using Nextjs and PayloadCMS V3. [View the website.](https://pats-portfolio-vlc.netlify.app/)
 
 ### How to add projects
 
@@ -37,7 +37,7 @@ To start go to the About Page Data section on the admin dashboard. There are cur
 
 1. About You Text
 
-1.About Page Title.
+1. About Page Title.
 
 When you go to edit an item there will be two fields
 
