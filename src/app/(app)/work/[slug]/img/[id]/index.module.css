@@ -36,6 +36,11 @@
   margin-top: 20px;
 }
 
+.imageSkeleton {
+  width: 80vw;
+  aspect-ratio: 1;
+}
+
 .imageContainer img,
 .imageContainer video {
   width: 100vw;

@@ -19,3 +19,24 @@
   color: rgba(255, 255, 255, 0.85);
   font-size: 20px;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.loader div {
+  animation: spin 0.75s infinite linear;
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
