@@ -1,6 +1,6 @@
 # Pat's Portfolio
 
-This portfolio website was built using Nextjs and PayloadCMS V3.
+This portfolio website was built using Nextjs and PayloadCMS V3. [View the website](https://pats-portfolio-vlc.netlify.app/)
 
 ### How to add projects
 
@@ -25,12 +25,23 @@ This portfolio website was built using Nextjs and PayloadCMS V3.
 
 I tried to make the about page content as dynamic as possible so you can change it whenever you want, but there are some things you need to know so that it works.
 
-> [!IMPORTANT]
-
+> [!CAUTION]
 > The `field name` of the different about page items on the dashboard must stay the same because they are used to query the data.
 
-To start go to the About Page Data section on the admin dashboard. There are currently 4 items that you can change: images url, email, About You Text, and About Page Title.
+To start go to the About Page Data section on the admin dashboard. There are currently 4 items that you can change:
 
-When you go to edit an item there will be two fields 1. Field Name (DO NOT CHANGE ⛔️⛔️⛔️) 2. About Text (Can change ✅)
+1. image url
+
+1. email
+
+1. About You Text
+
+1.About Page Title.
+
+When you go to edit an item there will be two fields
+
+1. Field Name (DO NOT CHANGE ⛔️⛔️⛔️)
+
+1. About Text (Can change ✅)
 
 In order to change the about page image, upload a new media item in the dashboard and copy the `url` field from the uploaded item.
