@@ -19,7 +19,8 @@ This portfolio website was built using Nextjs and PayloadCMS V3. [View the websi
    - Tools used - not shown right now but could be used to filter projects in the future if you want
    - Project description - this will be shown on the right hand side of the project details page
 
-> Note: Media (aka images), categories, and tool can all be separately added via the dashboard and later added to a project or created while adding a project like described above.
+> [!NOTE]
+> Media (aka images), categories, and tool can all be separately added via the dashboard and later added to a project or created while adding a project like described above.
 
 ### About Page
 
