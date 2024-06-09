@@ -8,6 +8,7 @@ function LoadingPage() {
       <div className={styles.photoContainer}>
         <div className={`${styles.featuredImageSkeleton} skeleton`} />
       </div>
+      <div />
     </section>
   )
 }

@@ -45,17 +45,7 @@ async function ProjectDetailsPage({ params }: ProjectProps) {
   const project = await getProject(slug)
   return (
     <section className={styles.container}>
-      <div className={styles.aboutProject}>
-        <div className={styles.fixedContainer}>
-          <h1 className={styles.title}>{project.title}</h1>
-          <CategoriesList categories={project.categories} />
-          {project.projectDescription && (
-            <div className={styles.description}>
-              <p>{project.projectDescription}</p>
-            </div>
-          )}
-        </div>
-      </div>
+      <h1 className={styles.mobileTitle}>{project.title}</h1>
       <div className={styles.imagesContainer}>
         {[project.featuredImage, ...project.otherImages.map((data) => data.image)].map((image) => {
           return (
@@ -69,6 +59,19 @@ async function ProjectDetailsPage({ params }: ProjectProps) {
             </Link>
           )
         })}
+      </div>
+      <div className={styles.aboutProject}>
+        <div className={styles.fixedContainer}>
+          <h1 className={styles.title}>{project.title}</h1>
+          <div className={styles.projectDetails}>
+            <CategoriesList categories={project.categories} />
+            {project.projectDescription && (
+              <div className={styles.description}>
+                <p>{project.projectDescription}</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   )

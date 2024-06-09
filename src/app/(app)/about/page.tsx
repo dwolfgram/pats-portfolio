@@ -3,14 +3,13 @@ import React from 'react'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import styles from './index.module.css'
-import InstagramLink from '@/components/InstagramLink'
-import { unstable_cache } from 'next/cache'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'About & Contact',
 }
 
-const getAboutPageTitleData = unstable_cache(async () => {
+const getAboutPageTitleData = async () => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -23,9 +22,9 @@ const getAboutPageTitleData = unstable_cache(async () => {
     },
   })
   return data.docs[0]
-})
+}
 
-const getAboutPageBodyData = unstable_cache(async () => {
+const getAboutPageBodyData = async () => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -38,9 +37,9 @@ const getAboutPageBodyData = unstable_cache(async () => {
     },
   })
   return data.docs[0]
-})
+}
 
-const getAboutPageEmailData = unstable_cache(async () => {
+const getAboutPageEmailData = async () => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -53,9 +52,9 @@ const getAboutPageEmailData = unstable_cache(async () => {
     },
   })
   return data.docs[0]
-})
+}
 
-const getAboutPageImageData = unstable_cache(async () => {
+const getAboutPageImageData = async () => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -68,7 +67,7 @@ const getAboutPageImageData = unstable_cache(async () => {
     },
   })
   return data.docs[0]
-})
+}
 
 const fetchAboutPageData = async () => {
   const image = await getAboutPageImageData()
@@ -104,16 +103,10 @@ async function AboutPage() {
         <div>
           <h4>Get in touch for commissions or just to say hi!!</h4>
           <div className={styles.contact}>
-            <div>
-              <span>Email </span>
-              <span>{email.aboutText}</span>
-            </div>
-            <div>
-              <span style={{ position: 'relative', top: 3 }}>
-                <InstagramLink size={20} />
-              </span>
-              <span> @paintingpatri</span>
-            </div>
+            <p>Email: {email.aboutText}</p>
+            <p>
+              Instagram: <Link href="https://instagram.com/@paintingpatri">@paintingpatri</Link>
+            </p>
           </div>
         </div>
       </div>

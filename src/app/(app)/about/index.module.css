@@ -46,14 +46,15 @@
 .contact {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
+  font-size: 18px;
 }
 
 .contact div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
 }
 
 .featuredImageSkeleton {

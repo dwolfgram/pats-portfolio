@@ -5,9 +5,10 @@ import { ProjectWithUpdatedImages } from '@/components/Gallery/types'
 import Gallery from '@/components/Gallery'
 import styles from './index.module.css'
 import { Metadata } from 'next'
-import { unstable_cache } from 'next/cache'
+import { getAllCategories } from '@/actions'
+import CategoriesList from '@/components/CategoriesList'
 
-const getProjects = unstable_cache(async (category: string) => {
+const getProjects = async (category: string) => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -29,7 +30,7 @@ const getProjects = unstable_cache(async (category: string) => {
     },
   })
   return data.docs as ProjectWithUpdatedImages[]
-})
+}
 
 interface CategoriesPageProps {
   params: {
@@ -47,9 +48,11 @@ export function generateMetadata({ params }: CategoriesPageProps): Metadata {
 async function CategoriesPage({ params }: CategoriesPageProps) {
   const { category } = params
   const projects = await getProjects(category)
+  const categories = await getAllCategories()
 
   return (
     <section className={styles.container}>
+      <CategoriesList categories={categories} />
       <h3 className={styles.heading}>Category: {category}</h3>
       <Gallery projects={projects} />
     </section>

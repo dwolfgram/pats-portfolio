@@ -9,7 +9,7 @@ const PAGE = 1
 const LIMIT = 10
 
 const getData = async (page: number, limit: number) => {
-  const projects = await getAllProjectsByPage(PAGE, LIMIT)
+  const projects = await getAllProjectsByPage(page, limit)
   const categories = await getAllCategories()
   return { projects, categories }
 }

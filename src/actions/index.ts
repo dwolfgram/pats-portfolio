@@ -3,9 +3,8 @@
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import { ProjectWithUpdatedImages } from '@/components/Gallery/types'
-import { unstable_cache } from 'next/cache'
 
-export const getAllProjectsByPage = unstable_cache(async (page: number, limit: number = 4) => {
+export const getAllProjectsByPage = async (page: number, limit: number = 4) => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -20,9 +19,9 @@ export const getAllProjectsByPage = unstable_cache(async (page: number, limit: n
     ...data,
     docs: data.docs as ProjectWithUpdatedImages[],
   }
-})
+}
 
-export const getAllCategories = unstable_cache(async () => {
+export const getAllCategories = async () => {
   const payload = await getPayloadHMR({
     config: configPromise,
   })
@@ -30,4 +29,4 @@ export const getAllCategories = unstable_cache(async () => {
     collection: 'categories',
   })
   return data.docs as ProjectWithUpdatedImages['categories']
-})
+}

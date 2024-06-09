@@ -1,7 +1,7 @@
 .container {
   display: flex;
   width: 100%;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -35,7 +35,6 @@
 .imagesContainer video {
   height: 100%;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .featuredImageSkeleton {
@@ -48,10 +47,19 @@
   height: 50px;
 }
 
+.projectDetails {
+  display: flex;
+  flex-direction: column;
+}
+
 .title {
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.mobileTitle {
+  display: none;
 }
 
 .description {
@@ -75,5 +83,14 @@
   }
   .aboutProject {
     width: 100%;
+  }
+  .mobileTitle {
+    display: block;
+  }
+  .title {
+    display: none;
+  }
+  .projectDetails {
+    flex-direction: column-reverse;
   }
 }
