@@ -70,6 +70,7 @@
 @media screen and (max-width: 1200px) {
   .container {
     justify-content: flex-start;
+    padding-top: 15px;
   }
   .fixedContainer {
     position: relative;

@@ -85,6 +85,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .closeButton {
+    top: 15px;
+    right: 10px;
+  }
   .links {
     display: none;
   }
@@ -92,6 +96,10 @@
     display: block;
   }
   .navbar {
-    padding: 0px 20px 20px 20px;
+    padding: 0px 20px 0px 20px;
+    height: 70px;
+  }
+  .logo {
+    font-size: 20px;
   }
 }

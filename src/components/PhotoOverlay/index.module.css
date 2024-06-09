@@ -28,3 +28,10 @@
     opacity: 0.8;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .closeButton {
+    top: 5px;
+    right: 5px;
+  }
+}

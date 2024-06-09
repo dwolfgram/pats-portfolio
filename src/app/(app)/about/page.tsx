@@ -105,7 +105,7 @@ async function AboutPage() {
           <div className={styles.contact}>
             <p>Email: {email.aboutText}</p>
             <p>
-              Instagram: <Link href="https://instagram.com/@paintingpatri">@paintingpatri</Link>
+              Instagram: <Link href="https://instagram.com/paintingpatri">@paintingpatri</Link>
             </p>
           </div>
         </div>
