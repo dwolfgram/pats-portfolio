@@ -70,10 +70,12 @@ const getAboutPageImageData = async () => {
 }
 
 const fetchAboutPageData = async () => {
-  const image = await getAboutPageImageData()
-  const title = await getAboutPageTitleData()
-  const body = await getAboutPageBodyData()
-  const email = await getAboutPageEmailData()
+  const [image, title, body, email] = await Promise.all([
+    await getAboutPageImageData(),
+    await getAboutPageTitleData(),
+    await getAboutPageBodyData(),
+    await getAboutPageEmailData(),
+  ])
 
   return { image, title, body, email }
 }
