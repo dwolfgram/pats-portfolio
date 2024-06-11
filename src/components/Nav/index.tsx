@@ -39,7 +39,7 @@ function Nav() {
         <InstagramLink />
       </div>
       <div onClick={handleToggleMobileMenu} className={styles.mobileMenuButton}>
-        <FaBars size={20} color="#000" />
+        <FaBars size={20} />
       </div>
       {showMobileMenu && (
         <div className={styles.mobileMenu}>

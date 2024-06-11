@@ -59,7 +59,7 @@
   border: none;
   font-size: 26px;
   cursor: pointer;
-  color: #000;
+  color: #083913;
   transition: all 0.2s ease-in;
   opacity: 1;
   cursor: pointer;
@@ -70,7 +70,7 @@
 }
 
 .active {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #083913;
   padding-bottom: 4px;
 
   &:hover {

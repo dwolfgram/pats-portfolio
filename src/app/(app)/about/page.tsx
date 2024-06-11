@@ -94,7 +94,12 @@ async function AboutPage() {
     <section className={styles.container}>
       <div className={styles.photoContainer}>
         <div className={styles.pictures}>
-          <Media url={image.aboutText!} alt="About Pat the artist" priority={true} />
+          <Media
+            sizes="(max-width: 1280px) 100vw, 50vw"
+            url={image.aboutText!}
+            alt="About Pat the artist"
+            priority={true}
+          />
         </div>
       </div>
       <div className={styles.aboutMeContainer}>
