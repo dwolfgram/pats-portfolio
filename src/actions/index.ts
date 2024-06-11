@@ -14,6 +14,7 @@ export const getAllProjectsByPage = unstable_cache(
       collection: 'projects',
       page,
       limit,
+      sort: '-dateCreated',
       pagination: true,
     })
 

@@ -48,6 +48,7 @@ export interface Project {
   id: string;
   title: string;
   urlSlug: string;
+  dateCreated: string;
   featuredImage: string | Media;
   otherImages?:
     | {

@@ -41,6 +41,7 @@ const getProjects = (categoryId: string) =>
             equals: categoryId,
           },
         },
+        sort: '-dateCreated',
       })
       return data.docs as ProjectWithUpdatedImages[]
     },

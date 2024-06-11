@@ -91,6 +91,11 @@ export default buildConfig({
           required: true,
         },
         {
+          name: 'dateCreated',
+          type: 'date',
+          required: true,
+        },
+        {
           name: 'featuredImage',
           type: 'upload',
           required: true,
