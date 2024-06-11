@@ -52,11 +52,14 @@
   width: 85%;
 }
 
+.container h4 {
+  margin-bottom: 0px;
+}
+
 .socialsContainer {
   display: flex;
   flex-direction: row;
   gap: 15px;
-  margin-top: 10px;
 }
 
 .social {

@@ -70,7 +70,7 @@ async function CategoriesPage({ params }: CategoriesPageProps) {
 
   return (
     <section className={styles.container}>
-      <CategoriesList categories={categories} />
+      <CategoriesList categories={categories} className={styles.categories} />
       <h3 className={styles.heading}>Category: {category}</h3>
       <Gallery projects={projects} />
     </section>

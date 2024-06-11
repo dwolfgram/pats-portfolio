@@ -1,7 +1,14 @@
 .heading {
-  font-weight: 400;
+  font-weight: 450;
+  font-size: 1rem;
 }
 
 .container {
   width: 100%;
+}
+
+.categories {
+  font-size: 1.1rem;
+  gap: 35px;
+  justify-content: center;
 }

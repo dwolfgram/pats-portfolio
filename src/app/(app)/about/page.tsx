@@ -114,6 +114,7 @@ async function AboutPage() {
         </div>
         <h1>{title.aboutText}</h1>
         <p>{body.aboutText}</p>
+        <h4>Contact me!</h4>
         <div className={styles.socialsContainer}>
           <div className={`${styles.social} ${styles.ig}`}>
             <InstagramLink />

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import InstagramLink from '../InstagramLink'
 import { FaBars } from 'react-icons/fa'
 
-const NAV_LINKS = [
+export const NAV_LINKS = [
   { label: 'Work', href: '/', pathsToMatch: ['work'] },
   { label: 'About & Contact', href: '/about', pathsToMatch: ['about'] },
 ]

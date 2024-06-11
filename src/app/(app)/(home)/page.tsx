@@ -19,7 +19,7 @@ async function HomePage() {
 
   return (
     <div className={styles.container}>
-      <CategoriesList categories={categories} />
+      <CategoriesList className={styles.categories} categories={categories} />
       <ProjectList initialData={projects} />
     </div>
   )

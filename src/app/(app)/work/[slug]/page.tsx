@@ -10,6 +10,7 @@ import Media from '@/components/Media'
 
 import styles from './index.module.css'
 import { unstable_cache } from 'next/cache'
+import { FaTag } from 'react-icons/fa'
 
 interface ProjectProps {
   params: {
@@ -74,7 +75,11 @@ async function ProjectDetailsPage({ params }: ProjectProps) {
                 <p>{project.projectDescription}</p>
               </div>
             )}
-            <CategoriesList categories={project.categories} />
+            <div className={styles.separator} />
+            <div className={styles.categoriesContainer}>
+              <FaTag size={15} />
+              <CategoriesList categories={project.categories} className={styles.categories} comma />
+            </div>
           </div>
         </div>
       </div>

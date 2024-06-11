@@ -1,8 +1,28 @@
 .container {
-  padding: 100px 60px 20px 60px;
+  margin-top: 50px;
+  padding: 50px 60px 30px 60px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.container div {
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: 'row';
+  align-items: center;
+  gap: 20px;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

@@ -4,6 +4,13 @@
   width: 100%;
 }
 
+.categories {
+  margin-bottom: 25px;
+  gap: 35px;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
 .gallery {
   width: 100%;
   columns: 4;
