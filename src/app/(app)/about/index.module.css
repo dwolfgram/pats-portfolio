@@ -34,6 +34,7 @@
 .pictures img {
   max-height: 700px;
   filter: brightness(1.02) saturate(1) contrast(1.1);
+  border-radius: 8px;
 }
 
 .aboutMeContainer {
