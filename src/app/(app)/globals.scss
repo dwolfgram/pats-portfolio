@@ -3,7 +3,7 @@
 }
 
 *::selection {
-  background-color: rgba(140, 245, 2, 1);
+  background-color: #55dd26;
 }
 
 html {
@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  color: #000;
+  color: #083913;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -29,7 +29,7 @@ main {
 }
 
 h1 {
-  color: #000;
+  color: #083913;
   font-size: 4rem;
   font-weight: 600;
   line-height: normal;
@@ -43,7 +43,7 @@ h1 {
 }
 
 p {
-  color: #000000;
+  color: #083913;
   font-size: 16px;
   font-weight: 300;
   line-height: 28px;
@@ -51,12 +51,12 @@ p {
 }
 
 a {
-  color: #000000;
+  color: #083913;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
   transform: translateY(0);
   &:hover {
-    color: rgba(140, 245, 2, 1);
+    color: #55dd26;
   }
 }
 

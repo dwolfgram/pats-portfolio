@@ -9,13 +9,13 @@
 
 .category {
   padding: 6px 12px;
-  border: 1px solid #eee;
-  background-color: #fcfcfc;
+  border: 1px solid #eaf0eb;
+  background-color: #fcfffd;
   font-weight: 500;
   font-size: 14px;
   border-radius: 20px;
   transition: all 0.15s ease-in-out;
   &:hover {
-    color: rgba(140, 245, 2, 1);
+    color: #55dd26;
   }
 }

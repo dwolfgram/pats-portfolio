@@ -74,7 +74,7 @@
   padding-bottom: 4px;
 
   &:hover {
-    border-bottom: 1px solid rgba(140, 245, 2, 1);
+    border-bottom: 1px solid #55dd26;
   }
 }
 

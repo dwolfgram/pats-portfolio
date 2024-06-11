@@ -69,12 +69,12 @@ async function ProjectDetailsPage({ params }: ProjectProps) {
         <div className={styles.fixedContainer}>
           <h1 className={styles.title}>{project.title}</h1>
           <div className={styles.projectDetails}>
-            <CategoriesList categories={project.categories} />
             {project.projectDescription && (
               <div className={styles.description}>
                 <p>{project.projectDescription}</p>
               </div>
             )}
+            <CategoriesList categories={project.categories} />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   margin-bottom: 1em;
-
+  border-radius: 8px;
   &:hover {
     .descContainer {
       opacity: 1;
@@ -34,12 +34,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 10px;
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-color: rgba(140, 245, 2, 0.75);
+  background-color: #55dd26d9;
   transition: all 0.25s ease-in-out;
   cursor: pointer;
   -webkit-backdrop-filter: blur(5px);
@@ -51,16 +53,13 @@
   top: 0px;
   opacity: 0;
   margin: 0;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 1.5rem;
+  color: #083913;
+  font-weight: 600;
+  font-size: 1.75rem;
   transition: all 0.25s ease-in-out;
 }
 
 .categoriesContainer {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -69,6 +68,6 @@
 }
 
 .categoriesContainer p {
-  font-size: 14px;
-  color: #fff;
+  font-size: 1.2rem;
+  color: #083913;
 }

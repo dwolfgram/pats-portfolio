@@ -5,6 +5,8 @@ import configPromise from '@payload-config'
 import styles from './index.module.css'
 import Link from 'next/link'
 import { unstable_cache } from 'next/cache'
+import InstagramLink from '@/components/InstagramLink'
+import { FaRegEnvelope } from 'react-icons/fa'
 
 export const metadata = {
   title: 'About & Contact',
@@ -107,13 +109,14 @@ async function AboutPage() {
         </div>
         <h1>{title.aboutText}</h1>
         <p>{body.aboutText}</p>
-        <div>
-          <h4>Get in touch for commissions or just to say hi!!</h4>
-          <div className={styles.contact}>
-            <p>Email: {email.aboutText}</p>
-            <p>
-              Instagram: <Link href="https://instagram.com/paintingpatri">@paintingpatri</Link>
-            </p>
+        <div className={styles.socialsContainer}>
+          <div className={`${styles.social} ${styles.ig}`}>
+            <InstagramLink />
+            <Link href="https://instagram.com/paintingpatri">@paintingpatri</Link>
+          </div>
+          <div className={`${styles.social} ${styles.email}`}>
+            <FaRegEnvelope size={22} />
+            {email.aboutText}
           </div>
         </div>
       </div>

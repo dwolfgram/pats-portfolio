@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 800px;
 }
 
 .flowers {
@@ -38,6 +39,7 @@
 .aboutMeContainer {
   width: 42%;
   position: relative;
+  max-width: 600px;
 }
 
 .aboutMeContainer h1 {
@@ -45,18 +47,34 @@
   margin-bottom: 20px;
 }
 
-.contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  font-size: 18px;
+.aboutMeContainer p {
+  width: 85%;
 }
 
-.contact div {
+.socialsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 10px;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ig svg {
+  position: relative;
+  top: 3px;
+}
+
+.email svg {
+  position: relative;
+  top: 1px;
 }
 
 .featuredImageSkeleton {

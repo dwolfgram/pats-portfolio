@@ -25,7 +25,7 @@
 }
 
 .link:hover > * {
-  color: rgba(140, 245, 2, 1);
+  color: #55dd26;
 }
 
 .imageContainer {
@@ -47,6 +47,7 @@
   height: 100%;
   max-height: 70vh;
   object-fit: contain;
+  border-radius: 8px;
 }
 
 .imageDescription {
