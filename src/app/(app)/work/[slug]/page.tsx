@@ -17,20 +17,25 @@ interface ProjectProps {
   }
 }
 
-const getProject = unstable_cache(async (slug: string) => {
-  const payload = await getPayloadHMR({
-    config: configPromise,
-  })
-  const data = await payload.find({
-    collection: 'projects',
-    where: {
-      urlSlug: {
-        equals: slug,
-      },
+const getProject = (slug: string) =>
+  unstable_cache(
+    async (slug: string) => {
+      const payload = await getPayloadHMR({
+        config: configPromise,
+      })
+      const data = await payload.find({
+        collection: 'projects',
+        where: {
+          urlSlug: {
+            equals: slug,
+          },
+        },
+      })
+      return data.docs[0] as ProjectWithUpdatedImages
     },
-  })
-  return data.docs[0] as ProjectWithUpdatedImages
-})
+    ['project'],
+    { tags: [`project/${slug}`] },
+  )(slug)
 
 export async function generateMetadata({ params }: ProjectProps): Promise<Metadata> {
   const slug = params.slug

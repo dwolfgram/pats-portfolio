@@ -26,6 +26,7 @@ import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
 import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3'
+import { revalidateTagsHook } from '@/utils/payload-hooks'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -126,6 +127,26 @@ export default buildConfig({
           type: 'textarea',
         },
       ],
+      hooks: {
+        afterDelete: [
+          (params) =>
+            revalidateTagsHook([
+              'projects',
+              `project/${params.doc.urlSlug}`,
+              `project/${params.doc.urlSlug}/images`,
+              ...params.doc.categories.map((category: string) => `projects/category/${category}`),
+            ])(params),
+        ],
+        afterChange: [
+          (params) =>
+            revalidateTagsHook([
+              'projects',
+              `project/${params.doc.urlSlug}`,
+              `project/${params.doc.urlSlug}/images`,
+              ...params.doc.categories.map((category: string) => `projects/category/${category}`),
+            ])(params),
+        ],
+      },
     },
     {
       slug: 'categories',
@@ -141,6 +162,10 @@ export default buildConfig({
           type: 'text',
         },
       ],
+      hooks: {
+        afterDelete: [revalidateTagsHook(['categories'])],
+        afterChange: [revalidateTagsHook(['categories'])],
+      },
     },
     {
       slug: 'tools',
@@ -175,6 +200,9 @@ export default buildConfig({
           type: 'textarea',
         },
       ],
+      hooks: {
+        afterChange: [revalidateTagsHook(['about'])],
+      },
     },
     {
       slug: 'media',

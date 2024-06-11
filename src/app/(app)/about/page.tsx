@@ -4,6 +4,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config'
 import styles from './index.module.css'
 import Link from 'next/link'
+import { unstable_cache } from 'next/cache'
 
 export const metadata = {
   title: 'About & Contact',
@@ -69,16 +70,20 @@ const getAboutPageImageData = async () => {
   return data.docs[0]
 }
 
-const fetchAboutPageData = async () => {
-  const [image, title, body, email] = await Promise.all([
-    await getAboutPageImageData(),
-    await getAboutPageTitleData(),
-    await getAboutPageBodyData(),
-    await getAboutPageEmailData(),
-  ])
+const fetchAboutPageData = unstable_cache(
+  async () => {
+    const [image, title, body, email] = await Promise.all([
+      await getAboutPageImageData(),
+      await getAboutPageTitleData(),
+      await getAboutPageBodyData(),
+      await getAboutPageEmailData(),
+    ])
 
-  return { image, title, body, email }
-}
+    return { image, title, body, email }
+  },
+  ['about-page'],
+  { tags: ['about'] },
+)
 
 async function AboutPage() {
   const { image, title, body, email } = await fetchAboutPageData()

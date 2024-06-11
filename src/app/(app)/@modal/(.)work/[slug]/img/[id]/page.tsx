@@ -10,23 +10,29 @@ import { unstable_cache } from 'next/cache'
 interface ImageDetailPageProps {
   params: {
     id: string
+    slug: string
   }
 }
 
-const getImage = unstable_cache(async (id: string) => {
-  const payload = await getPayloadHMR({
-    config: configPromise,
-  })
-  const data = await payload.findByID({
-    collection: 'media',
-    id,
-  })
-  return data
-})
+const getImage = (id: string, slug: string) =>
+  unstable_cache(
+    async (id: string, slug: string) => {
+      const payload = await getPayloadHMR({
+        config: configPromise,
+      })
+      const data = await payload.findByID({
+        collection: 'media',
+        id,
+      })
+      return data
+    },
+    ['modal-project-image'],
+    { tags: [`project/${slug}/images`] },
+  )(id, slug)
 
 async function ImageDetailPage({ params }: ImageDetailPageProps) {
-  const { id } = params
-  const image = await getImage(id)
+  const { id, slug } = params
+  const image = await getImage(id, slug)
   return (
     <PhotoOverlay>
       <div className={styles.imageContainer}>

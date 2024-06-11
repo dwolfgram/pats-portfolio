@@ -15,20 +15,24 @@ interface ImageDetailPageProps {
   }
 }
 
-const getImage = unstable_cache(async (id: string) => {
-  const payload = await getPayloadHMR({
-    config: configPromise,
-  })
-  const data = await payload.findByID({
-    collection: 'media',
-    id,
-  })
-  return data
-})
+const getImage = (id: string, slug: string) =>
+  unstable_cache(
+    async (id: string, slug: string) => {
+      const payload = await getPayloadHMR({
+        config: configPromise,
+      })
+      const data = await payload.findByID({
+        collection: 'media',
+        id,
+      })
+      return data
+    },
+    ['project-image'],
+    { tags: [`project/${slug}/images`] },
+  )(id, slug)
 
 export async function generateMetadata({ params }: ImageDetailPageProps): Promise<Metadata> {
-  const imageId = params.id
-  const image = await getImage(imageId)
+  const image = await getImage(params.id, params.slug)
   return {
     title: `${image.filename}`,
   }
@@ -36,7 +40,7 @@ export async function generateMetadata({ params }: ImageDetailPageProps): Promis
 
 async function ImageDetailPage({ params }: ImageDetailPageProps) {
   const { id, slug } = params
-  const image = await getImage(id)
+  const image = await getImage(id, slug)
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
